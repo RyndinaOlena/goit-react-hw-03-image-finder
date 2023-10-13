@@ -1,7 +1,17 @@
 import css from './styles.module.css'
 import React from 'react';
 
-export const Searchbar = ({ handelSubmit }) => {
+
+
+
+
+export const Searchbar = ({ onSubmit }) => {
+    const handelSubmit = (event) => {
+        event.preventDefault();
+
+        const searchValues = event.target.elements.searchForm.value
+        onSubmit(searchValues)
+    }
     return (
         <header className={''} >
             <form onSubmit={handelSubmit} className={css.Searchbar}>
